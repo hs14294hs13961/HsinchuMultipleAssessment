@@ -9,23 +9,65 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; /* 隱藏原本頁面的捲軸，全權交給 iframe */
+            overflow: hidden;
+            background-color: #f8f9fa;
+        }
+        /* 頂部救援按鈕樣式 */
+        .rescue-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background-color: #fff3cd;
+            color: #856404;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            font-size: 14px;
+            border-bottom: 1px solid #ffeeba;
+            font-family: "Microsoft JhengHei", sans-serif;
+        }
+        .rescue-btn {
+            margin-left: 10px;
+            padding: 4px 12px;
+            background-color: #4285f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .rescue-btn:hover {
+            background-color: #3367d6;
         }
         iframe {
             width: 100%;
-            height: 100%;
+            height: calc(100% - 40px); /* 扣掉頂部按鈕高度 */
             border: none;
-            display: block; /* 移除 iframe 底部可能的間隙 */
+            display: block;
+            margin-top: 40px; /* 往下推 */
         }
     </style>
 </head>
 <body>
-    <!-- 請將下方的 src="..." 換成您在步驟一複製的 GAS exec 網址 -->
+    <!-- 救援工具列：當畫面無法載入時，老師可以點這個 -->
+    <div class="rescue-bar">
+        <span>⚠️ 如果下方畫面無法顯示或出現錯誤？</span>
+        <!-- 請將下方的 href 換成您 GAS 的 exec 網址 -->
+        <a href="https://script.google.com/macros/s/AKfycbz......您的長網址....../exec" target="_blank" class="rescue-btn">
+            點此開啟完整表單
+        </a>
+    </div>
+
+    <!-- 主畫面 -->
+    <!-- 請確認這裡的 src 也是您的 GAS exec 網址 -->
     <iframe 
-        src="https://script.google.com/macros/s/AKfycbz9ChojvgJe9xg4IGS4uIEzZflZ_nsa06vvIzxf8TgLowZC8K4KBbbxqw39cLr4n3ZO/exec" 
+        src="https://script.google.com/macros/s/AKfycbz......您的長網址....../exec" 
         allow="camera; microphone; forms; popups"
     >
-        您的瀏覽器不支援嵌入框架，請點擊<a href="https://script.google.com/macros/s/您的長串GAS網址/exec">這裡</a>前往。
+        您的瀏覽器不支援嵌入框架，請點擊上方按鈕前往。
     </iframe>
 </body>
 </html>
